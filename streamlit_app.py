@@ -29,7 +29,7 @@ def load_data(querry):
 
     
     
-
+conn =st.experimental_connection('oracle21', type='sql')
 
 st.title("🎈 My new app")
 st.write(
