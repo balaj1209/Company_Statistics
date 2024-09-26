@@ -1,1 +1,7 @@
 streamlit
+sqlalchemy
+numpy
+pandas
+matplotlib
+scikit-learn
+tensorflow
