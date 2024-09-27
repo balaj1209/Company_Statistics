@@ -5,4 +5,6 @@ pandas
 matplotlib
 scikit-learn
 tensorflow
-oracledb
+airbyte 
+openpyxl 
+plotly
