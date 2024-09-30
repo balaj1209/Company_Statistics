@@ -9,7 +9,7 @@ import json
 
 st.title("Comapany Stats")
 
-PATH_to_KEY = "weighty-smoke-436907-p5-9b7f4737ac79.json"
+PATH_to_KEY = "Weight.json"
 Student_data = "https://docs.google.com/spreadsheets/d/1lyQExfwjbRM24CBJDxEfmEqt2Ah49CYs4_eFsiIX5KE/edit?usp=sharing"
 company_data = "https://docs.google.com/spreadsheets/d/14OWSWzvDppYTZR47yydXl5QXQfjMu400HFoOP3I-Imk/edit?usp=sharing"
 company_req_data = "https://docs.google.com/spreadsheets/d/1nK-VwPIwqxKBFEb5aFlYCVtVRwmuZfSy9tY4dPs_Cco/edit?usp=sharing"
