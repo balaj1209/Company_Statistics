@@ -1,6 +1,7 @@
 import streamlit as st
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
+from google.oauth2 import service_account
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -9,7 +10,11 @@ import json
 
 st.title("Comapany Stats")
 
-PATH_to_KEY = "weighty-smoke-436907-p5-9b7f4737ac79"
+
+scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
+
+crediential = service_account.Credentials.from_service_account_info(st.secrets['gcp_service_account'],scopes = scope)
+
 Student_data = "https://docs.google.com/spreadsheets/d/1lyQExfwjbRM24CBJDxEfmEqt2Ah49CYs4_eFsiIX5KE/edit?usp=sharing"
 company_data = "https://docs.google.com/spreadsheets/d/14OWSWzvDppYTZR47yydXl5QXQfjMu400HFoOP3I-Imk/edit?usp=sharing"
 company_req_data = "https://docs.google.com/spreadsheets/d/1nK-VwPIwqxKBFEb5aFlYCVtVRwmuZfSy9tY4dPs_Cco/edit?usp=sharing"
@@ -23,11 +28,11 @@ Data_selector = st.sidebar.selectbox(
 @st.cache_data
 def connect_to_sheet(url):
     try:
-        scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-        creds = ServiceAccountCredentials.from_json_keyfile_name(PATH_to_KEY, scope)
-        client = gspread.authorize(creds)
+        #creds = ServiceAccountCredentials.from_json_keyfile_name(PATH_to_KEY, scope)
+        client = gspread.authorize(crediential)
 
         sheet = client.open_by_url(url).sheet1
+
         return sheet.get_all_values() #raw data
     
     except Exception as er:
